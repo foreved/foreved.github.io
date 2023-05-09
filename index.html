@@ -147,6 +147,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/09/%E8%AE%B0%E5%BD%95V2ray%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="foreved">
+      <meta itemprop="description" content="各美其美 美人之美 美美与共 天下大同">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FOREVED">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/09/%E8%AE%B0%E5%BD%95V2ray%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">记录V2ray搭建过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-09 22:39:19 / 修改时间：23:36:34" itemprop="dateCreated datePublished" datetime="2023-05-09T22:39:19+08:00">2023-05-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="购买VPS"><a href="#购买VPS" class="headerlink" title="购买VPS"></a>购买VPS</h2><p>例如：</p>
+<ul>
+<li><code>BandwagongHost</code> : <a target="_blank" rel="noopener" href="https://bandwagonhost.com/">https://bandwagonhost.com</a></li>
+<li><code>Vultr</code> : <a target="_blank" rel="noopener" href="https://www.vultr.com/">https://www.vultr.com</a></li>
+<li><code>RackNerd</code> : <a target="_blank" rel="noopener" href="https://racknerd.com/">https://racknerd.com</a></li>
+<li><code>JustMySocks</code> : <a target="_blank" rel="noopener" href="https://justmysocks.net/">https://justmysocks.net</a></li>
+</ul>
+<h2 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h2><p>以 <code>Xshell</code> 为例：</p>
+<ol>
+<li>记录VPS的以下信息：<ul>
+<li><code>IP</code></li>
+<li><code>用户名</code></li>
+<li><code>密码</code></li>
+</ul>
+</li>
+<li>在Xshell中新建会话<ol>
+<li>连接<br><code>名称</code> 随意取；协议选 <code>SSH</code> ；主机填VPS的 <code>IP</code> ；端口后一般为 <code>22</code> ，具体可以看VPS商提供的信息<br><img src="/%E8%AE%B0%E5%BD%95V2ray%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Xshell_1.png" alt="连接"></li>
+<li>用户身份验证<br>选 <code>Password</code>登入 ，填入 <code>用户名</code> 和 <code>密码</code><br><img src="/%E8%AE%B0%E5%BD%95V2ray%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/Xshell_2.png" alt="用户身份验证"></li>
+</ol>
+</li>
+<li>以 <code>root</code> 身份登入服务器</li>
+</ol>
+<hr>
+<h1 id="二、开始部署（服务器）"><a href="#二、开始部署（服务器）" class="headerlink" title="二、开始部署（服务器）"></a>二、开始部署（服务器）</h1><p>注：</p>
+<ul>
+<li>以下操作皆在 <code>root</code> 身份下进行</li>
+<li>以 <code>Debian</code> 系统为例</li>
+<li>以 <code>$</code> 开头才为指令</li>
+</ul>
+<h2 id="安装必需的软件"><a href="#安装必需的软件" class="headerlink" title="安装必需的软件"></a>安装必需的软件</h2><ul>
+<li><code>curl</code> :<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt update</span><br><span class="line">$ apt install curl</span><br></pre></td></tr></table></figure></li>
+<li>下载安装脚本<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br></pre></td></tr></table></figure></li>
+<li>执行脚本<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash install-release.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<p>To be continued</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/08/markdown%E8%AF%AD%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -499,7 +593,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
