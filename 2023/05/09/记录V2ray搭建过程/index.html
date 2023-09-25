@@ -11,7 +11,7 @@
   
   <title>
     
-      test 
+      记录V2ray搭建过程 
       
       
     
@@ -115,20 +115,95 @@
 
 <div class="post">
   <h3 class="date">
-    Aug 16, 2023
+    May 09, 2023
   </h3>
   <h1>
-    test
+    记录V2ray搭建过程
   </h1>
   <div class="content markdown-body">
-    
+    <h1 id="二、开始部署（服务器）"><a href="#二、开始部署（服务器）" class="headerlink" title="二、开始部署（服务器）"></a>二、开始部署（服务器）</h1><p>注：</p>
+<ul>
+<li>以 <code>Debian</code> 系统为例</li>
+<li>以下操作皆在 <code>root</code> 身份下进行</li>
+<li>以 <code>$</code> 为指令</li>
+<li>以 <code>VMESS</code> 协议为例</li>
+</ul>
+<h2 id="安装必需的软件"><a href="#安装必需的软件" class="headerlink" title="安装必需的软件"></a>安装必需的软件</h2><ul>
+<li>安装 <code>curl</code> :<pre><code>$ apt update
+$ apt install curl
+</code></pre>
+</li>
+<li>下载安装脚本<pre><code>$ curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+</code></pre>
+</li>
+<li>执行脚本<pre><code>$ bash install-release.sh
+</code></pre>
+</li>
+<li>设置开机自启动<pre><code>$ systemctl enable v2ray
+</code></pre>
+</li>
+<li>测试<pre><code>$ systemctl start v2ray
+$ systemctl status v2ray
+$ systemctl stop v2ray
+</code></pre>
+</li>
+</ul>
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p><code>config.json</code> 一般位于 <code>/usr/local/etc/v2ray/config.json</code></p>
+<pre><code class="json">&#123;
+  &quot;inbounds&quot;: [
+    &#123;
+      &quot;port&quot;: ***, // 服务器监听端口
+      &quot;protocol&quot;: &quot;vmess&quot;,    // 主传入协议
+      &quot;settings&quot;: &#123;
+        &quot;clients&quot;: [
+          &#123;
+            &quot;id&quot;: &quot;***&quot;,  // 用户ID，服务器与客户端必须相同
+            &quot;alterId&quot;: 0
+          &#125;
+        ]
+      &#125;
+    &#125;
+  ],
+  &quot;outbounds&quot;: [
+    &#123;
+      &quot;protocol&quot;: &quot;freedom&quot;,  // 主传出协议
+      &quot;settings&quot;: &#123;&#125;
+    &#125;
+  ],
+  &quot;dns&quot;: &#123;
+    &quot;servers&quot;: [
+      &quot;https+local://1.1.1.1/dns-query&quot;,
+      &quot;localhost&quot;
+    ]
+  &#125;,
+  &quot;log&quot;: &#123;
+    &quot;loglevel&quot;: &quot;info&quot;,
+    &quot;access&quot;: &quot;/***/access.log&quot;, // 日志存储位置
+    &quot;error&quot;: &quot;/***/error.log&quot;
+  &#125;
+&#125;
+</code></pre>
+<p><strong>值得注意得几项内容</strong></p>
+<ul>
+<li><code>port</code> : 随意未被占用的端口，记得用防火墙放行</li>
+<li><code>id</code> : 即 <code>UUID</code> ,服务器与客户端必须一致</li>
+<li><code>log</code> : 填写有效的Linux路径</li>
+</ul>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
+<li>重启服务<pre><code>systemctl restart v2ray
+</code></pre>
+</li>
+<li>检查运行状况<pre><code>systemctl status v2ray
+</code></pre>
+</li>
+</ul>
+<hr>
+<p>END</p>
   </div>
   
     
-      <a id="older" class="blog-nav" href="/2023/05/09/%E8%AE%B0%E5%BD%95V2ray%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/">OLDER&nbsp;&gt;</a>
-      
         
-          <a id="newer" class="blog-nav" href="/2023/08/16/%E4%B8%80%E3%80%81%E5%88%9D%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">&lt;&nbsp;NEWER</a>
+          <a id="newer" class="blog-nav" href="/2023/08/16/test/">&lt;&nbsp;NEWER</a>
           
             
 </div>
